@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Keyboard } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import { PageId, RoleId, Sale } from './types/pos';
 import { PosProvider, usePos } from './store/PosContext';
 import { AuthProvider, useAuth } from './auth/AuthContext';
@@ -221,6 +222,7 @@ export function App() {
     <AuthProvider>
       <PosProvider>
         <AppRouter />
+        <Analytics />
       </PosProvider>
     </AuthProvider>
   );
