@@ -1,0 +1,16 @@
+{
+  "name": "PLY Woods POS",
+  "short_name": "PLY Woods",
+  "description": "Point of Sale, Inventory & Accounting for PLY Woods Pakistan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3F4FA",
+  "theme_color": "#7C5CFC",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

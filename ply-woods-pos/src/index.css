@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Icon field — leading-icon inputs that cannot overlap */
+.icon-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 14px;
+  background: #fff;
+  border: 1px solid #E4E6F2;
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  transition: border-color .2s, box-shadow .2s;
+}
+.dark .icon-field {
+  background: #161827;
+  border-color: #2E314D;
+}
+.icon-field:focus-within {
+  border-color: #7C5CFC;
+  box-shadow: 0 0 0 4px rgba(124,92,252,.12);
+}
+.icon-field:focus-within .icon-field__icon { color: #7C5CFC; }
+.icon-field__icon {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9A9CB8;
+  position: static;
+}
+.icon-field__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0;
+  font-size: 15px;
+  color: #1F2037;
+}
+.dark .icon-field__input { color: #EEF0FA; }
+.icon-field__input::placeholder { color: #A5A7C0; }
+.icon-field__trail {
+  flex: 0 0 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0;
+  color: #8E90AD;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hero-gradient {
+  background: linear-gradient(125deg, #E86CE0 0%, #8B6CFF 48%, #3CD6F5 100%);
+}
+
+.hero-gradient-subtle {
+  background: linear-gradient(135deg, rgba(232, 108, 224, 0.14) 0%, rgba(124, 92, 252, 0.14) 50%, rgba(60, 210, 240, 0.14) 100%);
+}
+
+.concured-card {
+  @apply bg-white dark:bg-[#1B1D2E] rounded-[20px] border border-[#ECEEF5] dark:border-[#2A2D45] shadow-concured transition-all duration-200;
+}
+
+.concured-kpi-tile {
+  @apply bg-[#F7F8FC] dark:bg-[#22253A] rounded-[20px] border border-[#EFF1F8] dark:border-[#2E314D] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-concured;
+}
+
+.input-field {
+  @apply w-full rounded-[12px] border border-[#E3E6F0] dark:border-[#2E314D] bg-white dark:bg-[#161827] px-3.5 py-2.5 text-sm text-[#1A1B2E] dark:text-[#EEF0FA] placeholder:text-[#989CB3] focus:outline-none focus:ring-2 focus:ring-[#7C5CFC]/30 focus:border-[#7C5CFC] transition;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-[12px] bg-[#7C5CFC] hover:bg-[#6A48F5] active:scale-[0.98] text-white font-semibold px-4 py-2.5 text-sm shadow-sm shadow-[#7C5CFC]/25 transition disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-[12px] bg-[#F3F4FA] dark:bg-[#24273D] hover:bg-[#E7E9F7] dark:hover:bg-[#2E324D] text-[#2D2F45] dark:text-[#E2E4F5] font-medium px-4 py-2.5 text-sm transition;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 92, 252, 0.22);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 92, 252, 0.42);
+}
+
+/* Print styles for 80mm thermal receipt & A4 invoice */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #printable-area,
+  #printable-area * {
+    visibility: visible !important;
+  }
+  #printable-area {
+    position: fixed !important;
+    inset: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: none !important;
+    z-index: 99999 !important;
+  }
+  .print-thermal-80mm {
+    width: 80mm !important;
+    max-width: 80mm !important;
+    font-size: 11px !important;
+    padding: 4mm !important;
+  }
+  .print-a4 {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    padding: 12mm !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
